@@ -13,3 +13,33 @@ services:
     restart: unless-stopped
     expose:
       - 3306
+  
+  nginx:
+    container_name: nginx
+    networks:
+      - dockpressNetwork
+    build: requirements/nginx
+    env_file:
+      - .env
+    volumes:
+      - wordpress: /var/www/wordpress
+    depends_on:
+      - wordpress
+    restart: unless-stopped
+    ports:
+      - "443:443"
+
+  wordpress:
+    container_name: wordpress
+    networks:
+      - dockpressNetwork
+    build: requirements/wordpress
+    env_file:
+      - .env
+    volumes:
+      - wordpress: /var/www/wordpress
+    depends_on:
+      - mariadb
+    restart: unless-stopped
+    expose:
+      - 9000
