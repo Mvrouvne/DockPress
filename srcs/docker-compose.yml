@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  mariadb:
+    container_name: mariadb
+    networks:
+      - dockpressNetwork
+    build:  requirements/mariadb
+    env_file:
+      - .env
+    volumes:
+      - mariadb: /var/lib/mysql
+    restart: unless-stopped
+    expose:
+      - 3306
