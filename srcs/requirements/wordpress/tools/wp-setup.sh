@@ -1,34 +1,36 @@
-sleep 10;
+echo "executed!"
 
-wp config create --allow-root \
-            --dbname=$SQL_DATABASE \
-            --dbuser=$SQL_DATABASE \
-            --dbpass=$SQL_PASSWORD \
-            --dbhost=mariadb:3306 \
-            --path='/var/www/wordpress'
+# sleep 10;
 
-wp install --allow-root \
-        --title=$WP_TITLE \
-        --admin_user=$WP_ADMIN_USR \
-        --admin_password=$WP_ADMIN_PASS \
-        --admin_email=$WP_ADMIN_EMAIL
+# wp config create --allow-root \
+#             --dbname=$SQL_DATABASE \
+#             --dbuser=$SQL_DATABASE \
+#             --dbpass=$SQL_PASSWORD \
+#             --dbhost=mariadb:3306 \
+#             --path='/var/www/wordpress'
 
-wp user create --allow-root \
-            $WP_USR $WP_USR_EMAIL \
-            --role=author \
-            --user_pass=$WP_USR_PASS
+# wp install --allow-root \
+#         --title=$WP_TITLE \
+#         --admin_user=$WP_ADMIN_USR \
+#         --admin_password=$WP_ADMIN_PASS \
+#         --admin_email=$WP_ADMIN_EMAIL
 
-wp theme install --allow-root OceanWP \
-            --force --activate
+# wp user create --allow-root \
+#             $WP_USR $WP_USR_EMAIL \
+#             --role=author \
+#             --user_pass=$WP_USR_PASS
 
-wp plugin install --allow-root jetpack \
-            --force --activate
+# wp theme install --allow-root OceanWP \
+#             --force --activate
 
-wp plugin install --allow-root redis-cache \
-            --force --activate
+# wp plugin install --allow-root jetpack \
+#             --force --activate
 
-mkdir -p /run/php
+# wp plugin install --allow-root redis-cache \
+#             --force --activate
 
-wp redis enable --allow-root
+# mkdir -p /run/php
 
-/usr/sbin/php-fpm7.3 -F
+# wp redis enable --allow-root
+
+# /usr/sbin/php-fpm7.3 -F
