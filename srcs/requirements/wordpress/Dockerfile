@@ -16,10 +16,10 @@ RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.ph
 RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
 
-COPY tools/wp-setup.sh /var/www/wordpress
+COPY tools/wp-setup.sh /usr/local/bin/
+
+RUN chmod +x /usr/local/bin/wp-setup.sh
 
 WORKDIR /var/www/wordpress
 
-RUN chmod 755 wp-setup.sh
-
-CMD [ "./wp-setup.sh" ]
+CMD [ "wp-setup.sh" ]

@@ -1,6 +1,8 @@
-#! /bin/sh
+#!/bin/sh
 
 sleep 10;
+
+touch wp-config.pphp
 
 wp config create --allow-root \
             --dbname=$SQL_DATABASE \
