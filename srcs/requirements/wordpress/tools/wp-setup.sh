@@ -1,26 +1,25 @@
 #!/bin/sh
 
-sleep 10;
-
-touch wp-config.pphp
+wp core download --allow-root
 
 wp config create --allow-root \
-            --dbname=$SQL_DATABASE \
-            --dbuser=$SQL_DATABASE \
-            --dbpass=$SQL_PASSWORD \
-            --dbhost=mariadb:3306 \
-            --path='/var/www/wordpress'
+    --dbname=$SQL_DATABASE \
+    --dbuser=$SQL_USER \
+    --dbpass=$SQL_PASSWORD \
+    --dbhost=mariadb:3306
 
-wp install --allow-root \
-        --title=$WP_TITLE \
-        --admin_user=$WP_ADMIN_USR \
-        --admin_password=$WP_ADMIN_PASS \
-        --admin_email=$WP_ADMIN_EMAIL
+wp core install --allow-root \
+    --url='localhost' \
+    --title=$WP_TITLE \
+    --admin_user=$WP_ADMIN_USR \
+    --admin_password=$WP_ADMIN_PASS \
+    --admin_email=$WP_ADMIN_EMAIL
 
 wp user create --allow-root \
-            $WP_USR $WP_USR_EMAIL \
-            --role=author \
-            --user_pass=$WP_USR_PASS
+    $WP_USR $WP_USR_EMAIL \
+    --role=author \
+    --user_pass=$WP_USR_PASS
+
 
 wp theme install --allow-root OceanWP \
             --force --activate

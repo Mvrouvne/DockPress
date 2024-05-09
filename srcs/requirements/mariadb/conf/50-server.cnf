@@ -1,7 +1,11 @@
+[server]
+
+init_file = /etc/mysql/init.sql 
+
 [mysqld]
 
 datadir=/var/lib/mysql
-user=mysql
+user=root
 port=3306
 bind_address=*
 socket=/run/mysqld/mysqld.sock
