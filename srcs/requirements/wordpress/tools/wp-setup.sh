@@ -21,17 +21,17 @@ wp user create --allow-root \
     --user_pass=$WP_USR_PASS
 
 
-wp theme install --allow-root OceanWP \
-            --force --activate
+# wp theme install --allow-root oceanwp \
+#             --force --activate
 
-wp plugin install --allow-root jetpack \
-            --force --activate
+# wp plugin install --allow-root jetpack \
+#             --force --activate
 
-wp plugin install --allow-root redis-cache \
-            --force --activate
+# wp plugin install --allow-root redis-cache \
+#             --force --activate
 
 mkdir -p /run/php
 
-wp redis enable --allow-root
+# wp redis enable --allow-root
 
 /usr/sbin/php-fpm7.3 -F
