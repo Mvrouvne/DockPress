@@ -17,6 +17,7 @@ RUN ./nginx-script.sh
 
 COPY conf/nginx.conf /etc/nginx/nginx.conf
 
+# RUN mkdir -p /var/www/wordpress
 RUN chmod 755 /var/www/html
 RUN chown -R www-data:www-data /var/www/html
 

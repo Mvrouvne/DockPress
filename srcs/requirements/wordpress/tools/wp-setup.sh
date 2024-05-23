@@ -8,6 +8,7 @@ wp config create --allow-root \
     --dbpass=$SQL_PASSWORD \
     --dbhost=mariadb:3306
 
+
 wp core install --allow-root \
     --url='localhost' \
     --title=$WP_TITLE \
@@ -29,6 +30,7 @@ wp user create --allow-root \
 
 # wp plugin install --allow-root redis-cache \
 #             --force --activate
+
 
 mkdir -p /run/php
 
