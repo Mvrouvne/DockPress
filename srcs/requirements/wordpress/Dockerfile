@@ -18,7 +18,7 @@ COPY tools/wp-setup.sh /usr/local/bin/
 
 RUN chmod +x /usr/local/bin/wp-setup.sh
 
-WORKDIR /var/www/wordpress
+WORKDIR /var/www/html
 
 CMD ["wp-setup.sh"]
 

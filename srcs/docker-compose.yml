@@ -3,6 +3,7 @@ version: '3'
 services:
   mariadb:
     container_name: mariadb
+    image: mariadb
     networks:
       - inception
     build:  requirements/mariadb
@@ -16,13 +17,14 @@ services:
   
   nginx:
     container_name: nginx
+    image: nginx
     networks:
       - inception
     build: requirements/nginx
     env_file:
       - .env
     volumes:
-      - wordpress:/var/www/wordpress
+      - wordpress:/var/www/html
     depends_on:
       - wordpress
     restart: unless-stopped
@@ -31,13 +33,14 @@ services:
 
   wordpress:
     container_name: wordpress
+    image: wordpress
     networks:
       - inception
     build: requirements/wordpress
     env_file:
       - .env
     volumes:
-      - wordpress:/var/www/wordpress
+      - wordpress:/var/www/html
     depends_on:
       - mariadb
     restart: unless-stopped
