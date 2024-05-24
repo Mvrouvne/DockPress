@@ -36,4 +36,4 @@ mkdir -p /run/php
 
 # wp redis enable --allow-root
 
-/usr/sbin/php-fpm7.3 -F
+/usr/sbin/php-fpm7.4 -F
