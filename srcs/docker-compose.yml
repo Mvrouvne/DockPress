@@ -57,10 +57,10 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /Users/machaiba/data/mariadb
+      device: /home/machaiba/data/mariadb
   wordpress:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /Users/machaiba/data/wordpress
+      device: /home/machaiba/data/wordpress
