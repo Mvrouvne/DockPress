@@ -5,7 +5,6 @@ RUN apt-get upgrade -y
 RUN apt-get -y install wget
 RUN apt-get -y install php7.4 php7.4-fpm php7.4-mysql mariadb-client
 
-# RUN mkdir -p /var/www/wordpress
 
 COPY conf/www.conf /etc/php/7.4/fpm/pool.d/
 

@@ -8,5 +8,5 @@ down:
 delete:
 	docker system prune -af
 
-kill:
-	docker system prune -af && docker volume rm $(docker volume ls | awk {'print $2'} | grep -v VOLUME) && sudo rm -rf /home/machaiba/data/wordpress/* && sudo rm -rf /home/machaiba/data/mariadb/*
+kill: down
+	docker system prune -af && docker volume rm srcs_mariadb srcs_wordpress && sudo rm -rf /home/machaiba/data/wordpress/* && sudo rm -rf /home/machaiba/data/mariadb/*

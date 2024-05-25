@@ -10,7 +10,7 @@ wp config create --allow-root \
 
 
 wp core install --allow-root \
-    --url='localhost' \
+    --url='machaiba.42.fr' \
     --title=$WP_TITLE \
     --admin_user=$WP_ADMIN_USR \
     --admin_password=$WP_ADMIN_PASS \
