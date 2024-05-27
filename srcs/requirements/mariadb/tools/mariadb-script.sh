@@ -5,4 +5,4 @@ echo "CREATE USER IF NOT EXISTS $SQL_USER@'%' IDENTIFIED BY '$SQL_PASSWORD';" >>
 echo "GRANT ALL PRIVILEGES ON $SQL_DATABASE.* TO $SQL_USER@'%';" >> /etc/mysql/init.sql
 echo "FLUSH PRIVILEGES;" >> /etc/mysql/init.sql
 
-mysqld
+exec mysqld

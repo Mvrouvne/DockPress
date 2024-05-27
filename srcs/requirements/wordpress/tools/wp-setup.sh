@@ -6,11 +6,11 @@ wp config create --allow-root \
     --dbname=$SQL_DATABASE \
     --dbuser=$SQL_USER \
     --dbpass=$SQL_PASSWORD \
-    --dbhost=mariadb:3306
+    --dbhost=$WP_HOST
 
 
 wp core install --allow-root \
-    --url='machaiba.42.fr' \
+    --url=$WP_URL \
     --title=$WP_TITLE \
     --admin_user=$WP_ADMIN_USR \
     --admin_password=$WP_ADMIN_PASS \
@@ -33,7 +33,5 @@ wp user create --allow-root \
 
 
 mkdir -p /run/php
-
-# wp redis enable --allow-root
 
 /usr/sbin/php-fpm7.4 -F
